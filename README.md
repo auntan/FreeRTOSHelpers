@@ -1,4 +1,4 @@
-A FreeRTOS based set of tools that allows running deferred tasks in a single-threaded environment.
+Header only, FreeRTOS based set of tools that allows running deferred tasks in a single-threaded environment.
 
 ## Usage
 ### FreeRTOSHelpers::setImmediate
