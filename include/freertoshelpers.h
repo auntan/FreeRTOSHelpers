@@ -46,7 +46,7 @@ template <typename F>
 void startTimer(int interval, bool repeat, F f)
 {
     if (interval == 0) {
-        setImmediate(std::move(f));
+        FreeRTOSHelpers::setImmediate(std::move(f));
         return;
     }
     
