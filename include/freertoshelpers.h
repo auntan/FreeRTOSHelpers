@@ -35,11 +35,11 @@ struct SetImmediateData
 
 struct SetTimeoutData
 {
-	char lambda[SET_TIMEOUT_LAMBDA_MAX_SIZE];
-	TimerHandle_t handle;
-	StaticTimer_t data;
+    char lambda[SET_TIMEOUT_LAMBDA_MAX_SIZE];
+    TimerHandle_t handle;
+    StaticTimer_t data;
     bool repeat;
-	bool busy = false;
+    bool busy = false;
 };
 
 template <typename F>
@@ -141,10 +141,7 @@ public:
     Function() = default;
     
     template<typename F>
-    Function(F f)
-    {
-        this->operator=(std::move(f));
-    }
+    Function(F f) { this->operator=(std::move(f)); }
     
     template<typename F>
     void operator=(F f)
@@ -164,10 +161,7 @@ public:
 	    _function(_parameters);
     }
     
-    operator bool() const
-    {
-        return _function;
-    }
+    operator bool() const { return _function; }
 
 private:
     void(*_function)(void*) = nullptr;
@@ -177,10 +171,7 @@ private:
 class ConditionVariable
 {
 public:
-    void notify()
-    {
-        xTaskNotify(_task, 0, eNoAction);
-    }
+    void notify() { xTaskNotify(_task, 0, eNoAction); }
 
     void wait()
     {
